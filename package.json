@@ -1,0 +1,39 @@
+{
+  "name": "nexus-rbac-backend",
+  "version": "1.0.0",
+  "description": "Production-ready Node.js/Express + MongoDB backend with JWT authentication, RBAC and a layered service architecture",
+  "main": "src/server.js",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "worker": "node src/worker.js",
+    "start:cluster": "pm2-runtime ecosystem.config.js",
+    "db:indexes": "node scripts/sync-indexes.js",
+    "audit": "npm audit --omit=dev --audit-level=high"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "bullmq": "^6.3.11",
+    "compression": "^1.8.2",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.6",
+    "express": "^4.22.3",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0",
+    "ioredis": "^6.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.11.0",
+    "otplib": "^13.5.0",
+    "pino": "^10.4.0",
+    "pino-http": "^11.0.0",
+    "rate-limit-redis": "^6.0.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "pino-pretty": "^13.2.0"
+  }
+}
