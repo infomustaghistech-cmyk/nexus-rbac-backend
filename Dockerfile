@@ -1,11 +1,11 @@
 # ---- deps: install production dependencies only ----
-FROM node:20-alpine AS deps
+FROM node:26-alpine AS deps
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci --omit=dev && npm cache clean --force
 
 # ---- runtime: small image, non-root user ----
-FROM node:20-alpine
+FROM node:26-alpine
 ENV NODE_ENV=production
 WORKDIR /app
 
